@@ -1,154 +1,79 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Phone, Mail, MapPin, Facebook } from 'lucide-react'
+import { FB_MSG, FB_URL, PHONE, TEL } from '../data/site'
+
+const links = [
+  { name: 'O nas', href: '#onas' },
+  { name: 'Usługi', href: '#uslugi' },
+  { name: 'Efekty', href: '#efekty' },
+  { name: 'FAQ', href: '#faq' },
+  { name: 'Kontakt', href: '#kontakt' },
+]
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
-  const quickLinks = [
-    { name: 'Start', path: '/' },
-    { name: 'O nas', path: '/', hash: '#about' },
-    { name: 'Usługi', path: '/', hash: '#services' },
-    { name: 'Części', path: '/', hash: '#parts' },
-    { name: 'Cennik', path: '/cennik' },
-    { name: 'Kontakt', path: '/', hash: '#contact' },
-  ]
-
-  const services = [
-    'Diagnostyka komputerowa',
-    'Wymiana rozrządu',
-    'Serwis olejowy',
-    'Naprawy hamulców',
-    'Układ zawieszenia',
-    'Przegląd techniczny'
-  ]
-
   return (
-    <footer className="bg-navy text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
-          {/* Company Info */}
+    <footer className="pb-[5.5rem] md:pb-0">
+      <div className="bg-gold text-night">
+        <div className="wrap py-7 sm:py-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div>
-            <div className="mb-6">
-              <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <img 
-                  src="/logo-centercar.png" 
-                  alt="Center Car" 
-                  className="h-20 w-auto mb-4 hover:opacity-80 transition-opacity cursor-pointer"
-                />
-              </Link>
-              <h3 className="text-xl font-bold mb-3">
-                Center Car
-              </h3>
-              <p className="text-white/80 leading-relaxed">
-                Profesjonalny serwis samochodowy i hurtownia części od 1996 roku. 
-                Warszawa Bemowo.
-              </p>
-            </div>
-            
-            {/* Social Media */}
-            <div>
-              <a
-                href="https://facebook.com/CenterCarWaw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-pink transition-colors"
-              >
-                <Facebook size={20} />
-                <span>Facebook</span>
-              </a>
-            </div>
+            <p className="text-[11px] uppercase tracking-[0.22em] mb-1.5 text-night/60">Zadzwoń · Łuków</p>
+            <a href={TEL} className="font-display text-[clamp(2.1rem,5.5vw,3.5rem)] font-bold leading-none tracking-wide hover:opacity-80">
+              {PHONE}
+            </a>
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-xl font-bold mb-6">
-              Menu
-            </h4>
-            <nav className="space-y-3">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => {
-                    if (link.hash) {
-                      setTimeout(() => {
-                        document.querySelector(link.hash)?.scrollIntoView({ behavior: 'smooth' })
-                      }, 100)
-                    }
-                  }}
-                  className="block text-white/80 hover:text-pink transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-xl font-bold mb-6">
-              Nasze Usługi
-            </h4>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index} className="text-white/80">
-                  {service}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-xl font-bold mb-6">
-              Kontakt
-            </h4>
-            <div className="space-y-4">
-              <a 
-                href="tel:228110179"
-                className="flex items-start gap-3 text-white/80 hover:text-pink transition-colors"
-              >
-                <Phone size={20} className="flex-shrink-0 mt-1" />
-                <span className="font-semibold">22 811 01 79</span>
-              </a>
-              <a 
-                href="tel:228846407"
-                className="flex items-start gap-3 text-white/80 hover:text-pink transition-colors"
-              >
-                <Phone size={20} className="flex-shrink-0 mt-1" />
-                <span className="font-semibold">22 884 64 07</span>
-              </a>
-              <a 
-                href="tel:501867335"
-                className="flex items-start gap-3 text-white/80 hover:text-pink transition-colors"
-              >
-                <Phone size={20} className="flex-shrink-0 mt-1" />
-                <span className="font-semibold">501 867 335</span>
-              </a>
-              <div className="flex items-start gap-3 text-white/80">
-                <MapPin size={20} className="flex-shrink-0 mt-1" />
-                <span>ul. Wrocławska 4<br />01-493 Warszawa</span>
-              </div>
-            </div>
+          <div className="flex flex-col xs:flex-row sm:flex-row gap-2.5">
+            <a href={TEL} className="inline-flex items-center justify-center min-h-12 px-7 bg-night text-gold font-semibold">
+              Zadzwoń
+            </a>
+            <a
+              href={FB_MSG}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center min-h-12 px-7 border border-night/20 font-semibold hover:bg-night hover:text-gold"
+            >
+              Facebook
+            </a>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/80 text-center md:text-left">
-              &copy; {currentYear} Center Car. Wszelkie prawa zastrzeżone.
+      <div className="bg-[#0a0a0e]">
+        <div className="wrap py-8 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <a href="#start" className="flex items-center gap-3">
+            <img src="./logo-czysteauto.png" alt="CzysteAuto" className="h-14 w-14 object-cover" />
+            <span>
+              <span className="block font-display text-xl uppercase tracking-[0.14em]">CzysteAuto</span>
+              <span className="block text-[11px] uppercase tracking-[0.16em] text-muted">Autodetailing · Łuków</span>
+            </span>
+          </a>
+
+          <nav className="flex flex-wrap gap-x-5 gap-y-2">
+            {links.map((l) => (
+              <a
+                key={l.name}
+                href={l.href}
+                className="font-display text-sm uppercase tracking-[0.12em] text-muted hover:text-gold"
+              >
+                {l.name}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href={FB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted hover:text-gold"
+          >
+            Facebook
+          </a>
+        </div>
+
+        <div className="border-t border-white/[0.07]">
+          <div className="wrap py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <p className="text-xs text-muted">© {new Date().getFullYear()} CzysteAuto. Wszelkie prawa zastrzeżone.</p>
+            <p className="text-xs text-muted">
+              Strona stworzona przez <span className="text-gold font-medium">Noctura</span>
             </p>
-            <div className="flex flex-wrap gap-6">
-              <a href="#" className="text-white/80 hover:text-pink transition-colors">
-                Polityka Prywatności
-              </a>
-              <a href="#" className="text-white/80 hover:text-pink transition-colors">
-                Regulamin
-              </a>
-            </div>
           </div>
         </div>
       </div>

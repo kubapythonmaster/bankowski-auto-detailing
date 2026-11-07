@@ -1,136 +1,67 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { Cpu, Cog, Droplets, Disc, Gauge, ClipboardCheck, ArrowRight } from 'lucide-react'
+import { PHONE, TEL, services, steps } from '../data/site'
 
 const Services = () => {
-  const services = [
-    {
-      icon: Cpu,
-      title: 'Diagnostyka Komputerowa',
-      description: 'Kompleksowa diagnostyka elektroniki pojazdu',
-      image: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=600&auto=format&fit=crop'
-    },
-    {
-      icon: Cog,
-      title: 'Wymiana Rozrządu',
-      description: 'Profesjonalna wymiana paska i łańcucha',
-      image: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=600&auto=format&fit=crop'
-    },
-    {
-      icon: Droplets,
-      title: 'Serwis Olejowy i Filtry',
-      description: 'Wymiana oleju i filtrów najwyższej jakości',
-      image: 'https://images.unsplash.com/photo-1632823469673-134f4c8f4576?q=80&w=600&auto=format&fit=crop'
-    },
-    {
-      icon: Disc,
-      title: 'Naprawy Hamulców',
-      description: 'Wymiana klocków, tarcz i płynu hamulcowego',
-      image: 'https://images.unsplash.com/photo-1625047509191-a8b21e2e4c68?q=80&w=600&auto=format&fit=crop'
-    },
-    {
-      icon: Gauge,
-      title: 'Układ Zawieszenia',
-      description: 'Naprawa i wymiana elementów zawieszenia',
-      image: 'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=80&w=600&auto=format&fit=crop'
-    },
-    {
-      icon: ClipboardCheck,
-      title: 'Przegląd Techniczny',
-      description: 'Kompleksowy przegląd przed badaniem',
-      image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=600&auto=format&fit=crop'
-    }
-  ]
-
   return (
-    <section id="services" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block px-4 py-2 bg-navy text-white border-l-4 border-pink text-xs font-bold uppercase tracking-wider mb-6">
-            Co oferujemy?
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-navy mb-6 tracking-tight leading-tight">
-            Kompleksowe Usługi
-            <span className="block text-pink mt-2">Serwisowe</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Profesjonalny serwis samochodowy z certyfikatem OK Service
+    <section id="uslugi" className="py-16 sm:py-20 md:py-28 border-t border-white/10">
+      <div className="wrap">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+          <div>
+            <p className="font-display text-gold tracking-[0.18em] uppercase text-sm mb-2">Zakres</p>
+            <h2 className="font-display text-[clamp(1.85rem,5vw,3.1rem)] font-bold uppercase tracking-wide">
+              Co robimy
+            </h2>
+          </div>
+          <p className="text-muted max-w-sm text-sm sm:text-base">
+            Od mycia ręcznego po korektę lakieru i lampy. Zakres dobieramy do auta, nie do cennika z internetu.
           </p>
-        </motion.div>
-
-        {/* Services Grid - Z OBRAZKAMI */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group bg-white overflow-hidden border-2 border-gray-200 hover:border-pink transition-all duration-300 shadow-md hover:shadow-xl"
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-navy/40 group-hover:bg-navy/20 transition-colors"></div>
-                  
-                  {/* Icon on Image */}
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-pink flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-white" strokeWidth={2} />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-pink transition-colors leading-tight">
-                    {service.title}
-                  </h3>
-                  <p className="text-base text-gray-700 leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-                  <a 
-                    href="#contact"
-                    className="inline-flex items-center gap-2 text-navy font-semibold hover:text-pink transition-colors group"
-                  >
-                    Zapytaj o usługę
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              </motion.div>
-            )
-          })}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <a
-            href="#contact"
-            className="inline-block px-8 py-4 bg-navy text-white font-semibold text-lg hover:bg-navy-dark transition-colors duration-300"
-          >
-            Umów wizytę w serwisie
-          </a>
-        </motion.div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+          {services.map((item, i) => (
+            <article
+              key={item.title}
+              className="bg-night p-6 sm:p-7 flex flex-col min-h-[220px] sm:min-h-[250px] hover:bg-[#0c0c10] transition-colors"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-display text-gold text-sm tracking-[0.2em]">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="h-px flex-1 mx-4 bg-gold/25" />
+              </div>
+              <h3 className="font-display text-[1.35rem] sm:text-[1.5rem] font-semibold uppercase tracking-wide leading-tight mb-2">
+                {item.title}
+              </h3>
+              <p className="text-gold/80 text-xs uppercase tracking-[0.14em] mb-3">{item.tag}</p>
+              <p className="text-muted text-sm leading-relaxed mt-auto">{item.text}</p>
+            </article>
+          ))}
+        </div>
 
+        <div className="mt-14 md:mt-20 grid md:grid-cols-3 gap-0 border border-white/10">
+          {steps.map((s, i) => (
+            <div
+              key={s.n}
+              className={`p-6 sm:p-8 ${i < steps.length - 1 ? 'md:border-r border-b md:border-b-0 border-white/10' : ''}`}
+            >
+              <p className="font-display text-gold text-sm tracking-[0.2em] mb-3">Krok {s.n}</p>
+              <h3 className="font-display text-2xl uppercase tracking-wide mb-2">{s.title}</h3>
+              <p className="text-muted text-sm">{s.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 md:mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5 px-6 py-6 sm:px-8 border border-gold/35 bg-gold/[0.06]">
+          <div>
+            <p className="font-display text-xl sm:text-2xl uppercase tracking-wide m-0">
+              Nie wiesz, od czego zacząć?
+            </p>
+            <p className="text-muted text-sm mt-1">Zadzwoń — powiemy, co ma sens przy Twoim aucie.</p>
+          </div>
+          <a href={TEL} className="btn-gold shrink-0 w-full sm:w-auto">
+            Zadzwoń {PHONE}
+          </a>
+        </div>
       </div>
     </section>
   )

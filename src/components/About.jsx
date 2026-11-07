@@ -1,114 +1,67 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { FB_MSG, PHONE, TEL } from '../data/site'
+
+const facts = [
+  { n: 'Ręcznie', t: 'Bez automatycznej myjni. Felgi, progi i detale robimy sami.' },
+  { n: 'Łuków', t: 'Lokalne studio. Auta z miasta i okolic — Siedlce, Radzyń, Międzyrzec.' },
+  { n: 'Przed / po', t: 'Efekt widać na zdjęciach. Kanapa, bagażnik, lampy — bez retuszu.' },
+]
 
 const About = () => {
-  const stats = [
-    { number: '30+', label: 'Lat na rynku', sublabel: 'Od 1996 roku' },
-    { number: '10,000+', label: 'Części w ofercie', sublabel: 'Europejskie i azjatyckie' },
-    { number: '98%', label: 'Zadowolenia', sublabel: 'Opinie klientów' }
-  ]
-
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Column - Image with Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            {/* Main Image */}
-            <div className="relative overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1400&auto=format&fit=crop" 
-                alt="Mechanik przy pracy" 
-                className="w-full h-[600px] object-cover"
-              />
-            </div>
-
-            {/* Stats Cards Overlay */}
-            <div className="absolute -bottom-8 left-8 right-8 grid grid-cols-3 gap-4">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-navy text-white p-6 shadow-xl text-center border-l-4 border-pink"
-                >
-                  <div className="text-3xl font-bold text-pink mb-1">
-                    {stat.number}
-                  </div>
-                  <div className="text-xs font-semibold mb-1">
-                    {stat.label}
-                  </div>
-                  <div className="text-xs text-gray-400">
-                    {stat.sublabel}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right Column - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:pl-8"
-          >
-            <span className="inline-block px-4 py-2 bg-pink text-navy border-l-4 border-navy text-xs font-bold uppercase tracking-wider mb-6">
-              Kim jesteśmy?
-            </span>
-
-            <h2 className="text-4xl sm:text-5xl font-bold text-navy mb-8 tracking-tight leading-tight">
-              Twój Zaufany Partner
-              <span className="block text-pink mt-3">Od 1996 Roku</span>
-            </h2>
-            
-            <div className="space-y-6 text-gray-700 leading-relaxed mb-10">
-              <p className="text-base leading-loose">
-                <strong className="text-navy font-bold">Firma Center Car</strong> jest profesjonalną hurtownią części do samochodów 
-                europejskich i azjatyckich. Prowadzimy działalność już od <strong className="text-navy font-bold">1996 roku</strong>, co stawia nas 
-                w pierwszym rzędzie najbardziej doświadczonych sprzedawców.
-              </p>
-              
-              <p className="text-lg">
-                Posiadamy ofertę zarówno dla odbiorców detalicznych, jak i dla hurtowych - oferujemy 
-                <strong className="text-navy font-semibold"> specjalne zniżki dla warsztatów samochodowych oraz stałych klientów</strong>.
-              </p>
-              
-              <p className="text-lg">
-                W 2001 roku znacznie poszerzyliśmy ofertę dzięki czemu w stałej sprzedaży posiadamy ok. 
-                <strong className="text-navy font-semibold"> 10,000 części zamiennych</strong> w znacznej większości odpowiadających 
-                jakością częściom oryginalnym (dyrektywa GVO).
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#services"
-                className="px-8 py-4 bg-navy text-white font-semibold text-lg hover:bg-navy-dark transition-colors"
-              >
-                Nasze usługi
-              </a>
-              <a
-                href="#parts"
-                className="px-8 py-4 border-2 border-navy text-navy font-semibold text-lg hover:bg-gray-50 transition-colors"
-              >
-                Zobacz części
-              </a>
-            </div>
-          </motion.div>
+    <section id="onas" className="py-16 sm:py-20 md:py-28 border-t border-white/10">
+      <div className="wrap grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+        <div className="relative order-2 lg:order-1">
+          <div className="relative border border-gold/25 p-2 sm:p-3">
+            <img
+              src="./realizacje/kanapa.jpg"
+              alt="Wnętrze przed i po"
+              className="w-full aspect-[16/10] object-cover"
+            />
+            <img
+              src="./logo-czysteauto.png"
+              alt="CzysteAuto"
+              className="absolute bottom-4 left-4 h-16 w-16 sm:h-20 sm:w-20 object-cover border border-gold/40"
+            />
+          </div>
+          <img
+            src="./realizacje/lampy.jpg"
+            alt="Lampy przed i po"
+            className="mt-2 sm:mt-3 w-full aspect-[16/7] object-cover border border-white/10"
+          />
+          <p className="mt-3 text-xs uppercase tracking-[0.16em] text-muted">CzysteAuto · autodetailing Łuków</p>
         </div>
 
+        <div className="order-1 lg:order-2">
+          <p className="font-display text-gold tracking-[0.18em] uppercase text-sm mb-2">O nas</p>
+          <h2 className="font-display text-[clamp(1.85rem,5vw,3.1rem)] font-bold uppercase tracking-wide leading-[1.05] mb-5">
+            Studio, nie myjnia
+          </h2>
+          <p className="text-muted mb-4 max-w-lg">
+            CzysteAuto to detailing w Łukowie. Wnętrze, lakier, lampy i felgi — robota ręczna, chemia dobrana do auta, efekt widać od razu.
+          </p>
+          <p className="text-muted mb-8 max-w-lg">
+            Nie sprzedajemy „pakietów premium”. Pokazujemy przed i po. Jak chcesz wycenę — zadzwoń albo napisz na Facebooku.
+          </p>
+
+          <div className="grid sm:grid-cols-3 gap-4 sm:gap-5 mb-8">
+            {facts.map((f) => (
+              <div key={f.n} className="border-t border-gold/40 pt-3">
+                <p className="font-display text-lg uppercase tracking-wide text-gold mb-1">{f.n}</p>
+                <p className="text-sm text-muted">{f.t}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a href={TEL} className="btn-gold">
+              Zadzwoń {PHONE}
+            </a>
+            <a href={FB_MSG} target="_blank" rel="noopener noreferrer" className="btn-line">
+              Napisz na Facebooku
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )
