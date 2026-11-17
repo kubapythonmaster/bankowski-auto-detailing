@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import Footer from './components/Footer'
-import { TEL } from './data/site'
+import { PHONE, TEL } from './data/site'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         className="md:hidden fixed left-3 right-3 z-50 flex items-center justify-center h-[52px] bg-gold text-night font-display text-lg font-bold uppercase tracking-wide"
         style={{ bottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
       >
-        Zadzwoń 780 763 513
+        Zadzwoń {PHONE}
       </a>
     </div>
   )

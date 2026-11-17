@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { FB_MSG, PHONE, TEL } from '../data/site'
+import { FB_MSG, LOGO, PHONE, TEL, brand } from '../data/site'
 
 const links = [
   { name: 'O nas', href: '#onas' },
@@ -21,21 +21,25 @@ const Header = () => {
   }, [open])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-night border-b border-gold/35">
-      <div className="wrap h-[68px] sm:h-[76px] flex items-center gap-4">
-        <a href="#start" className="flex items-center gap-2.5 sm:gap-3 min-w-0" onClick={() => setOpen(false)}>
-          <img src="./logo-czysteauto.png" alt="CzysteAuto" className="h-10 w-10 sm:h-12 sm:w-12 object-cover shrink-0" />
+    <header className="fixed inset-x-0 top-0 z-50 bg-black/90 backdrop-blur-md border-b border-gold/30">
+      <div className="wrap h-[72px] sm:h-[80px] flex items-center gap-4">
+        <a href="#start" className="flex items-center gap-3 min-w-0" onClick={() => setOpen(false)}>
+          <img
+            src={LOGO}
+            alt={`${brand} Auto Detailing`}
+            className="h-11 w-11 sm:h-14 sm:w-14 object-cover rounded-full border border-gold/50 shrink-0"
+          />
           <span className="leading-none min-w-0">
-            <span className="block font-display text-lg sm:text-2xl font-bold tracking-[0.08em] uppercase truncate">
-              CzysteAuto
+            <span className="block font-display text-lg sm:text-2xl font-bold tracking-[0.06em] uppercase truncate">
+              Bańkowski
             </span>
-            <span className="hidden sm:block text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-muted">
-              Autodetailing · Łuków
+            <span className="hidden sm:block text-[10px] uppercase tracking-[0.16em] text-muted">
+              Auto Detailing · Mobilny i stacjonarny
             </span>
           </span>
         </a>
 
-        <nav className="hidden lg:flex ml-auto items-center gap-6 xl:gap-8">
+        <nav className="hidden lg:flex ml-auto items-center gap-5 xl:gap-7">
           {links.map((l) => (
             <a
               key={l.name}
@@ -45,7 +49,7 @@ const Header = () => {
               {l.name}
             </a>
           ))}
-          <a href={TEL} className="font-display text-lg font-bold text-gold tracking-wide whitespace-nowrap hover:text-gold-light">
+          <a href={TEL} className="font-display text-lg font-bold text-gold tracking-wide whitespace-nowrap">
             {PHONE}
           </a>
           <a href={TEL} className="btn-gold !min-h-10 text-sm">
@@ -64,7 +68,7 @@ const Header = () => {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-night px-5 py-4 flex flex-col">
+        <div className="lg:hidden border-t border-white/10 bg-black px-5 py-4 flex flex-col">
           {links.map((l) => (
             <a
               key={l.name}
@@ -75,11 +79,7 @@ const Header = () => {
               {l.name}
             </a>
           ))}
-          <a
-            href={TEL}
-            onClick={() => setOpen(false)}
-            className="mt-4 inline-flex items-center justify-center min-h-12 bg-gold text-night font-semibold"
-          >
+          <a href={TEL} onClick={() => setOpen(false)} className="mt-4 btn-gold">
             Zadzwoń {PHONE}
           </a>
           <a
@@ -87,9 +87,9 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-2 mb-2 inline-flex items-center justify-center min-h-12 border border-gold/40 text-gold font-semibold"
+            className="mt-2 mb-2 btn-line"
           >
-            Napisz na Facebooku
+            Facebook
           </a>
         </div>
       )}

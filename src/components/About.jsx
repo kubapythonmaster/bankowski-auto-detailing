@@ -1,54 +1,60 @@
 import React from 'react'
-import { FB_MSG, PHONE, TEL } from '../data/site'
-
-const facts = [
-  { n: 'Ręcznie', t: 'Bez automatycznej myjni. Felgi, progi i detale robimy sami.' },
-  { n: 'Łuków', t: 'Lokalne studio. Auta z miasta i okolic — Siedlce, Radzyń, Międzyrzec.' },
-  { n: 'Przed / po', t: 'Efekt widać na zdjęciach. Kanapa, bagażnik, lampy — bez retuszu.' },
-]
+import { FB_MSG, PHONE, TEL, modes, slogan } from '../data/site'
 
 const About = () => {
   return (
-    <section id="onas" className="py-16 sm:py-20 md:py-28 border-t border-white/10">
+    <section id="onas" className="section-pad border-t border-white/10">
       <div className="wrap grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
         <div className="relative order-2 lg:order-1">
-          <div className="relative border border-gold/25 p-2 sm:p-3">
+          <div className="relative overflow-hidden border border-white/10">
             <img
-              src="./realizacje/kanapa.jpg"
-              alt="Wnętrze przed i po"
-              className="w-full aspect-[16/10] object-cover"
+              src="./realizacje/volvo-front.png"
+              alt="Volvo XC90 przed i po auto detailingu Bańkowski"
+              className="w-full aspect-[4/5] sm:aspect-[16/11] object-cover object-top"
+              loading="lazy"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+            <p className="absolute bottom-3 left-3 right-3 font-display text-xs sm:text-sm uppercase tracking-[0.16em] text-gold">
+              Przed / po · Volvo XC90
+            </p>
+          </div>
+          <div className="mt-2 sm:mt-3 grid grid-cols-2 gap-2 sm:gap-3">
+            <img
+              src="./realizacje/lakier.jpg"
+              alt="Połysk lakieru po korekcie i detailingu"
+              className="w-full aspect-[16/10] object-cover border border-white/10"
+              loading="lazy"
             />
             <img
-              src="./logo-czysteauto.png"
-              alt="CzysteAuto"
-              className="absolute bottom-4 left-4 h-16 w-16 sm:h-20 sm:w-20 object-cover border border-gold/40"
+              src="./realizacje/felga.jpg"
+              alt="Felga samochodowa po czyszczeniu detailingowym"
+              className="w-full aspect-[16/10] object-cover border border-white/10"
+              loading="lazy"
             />
           </div>
-          <img
-            src="./realizacje/lampy.jpg"
-            alt="Lampy przed i po"
-            className="mt-2 sm:mt-3 w-full aspect-[16/7] object-cover border border-white/10"
-          />
-          <p className="mt-3 text-xs uppercase tracking-[0.16em] text-muted">CzysteAuto · autodetailing Łuków</p>
         </div>
 
         <div className="order-1 lg:order-2">
           <p className="font-display text-gold tracking-[0.18em] uppercase text-sm mb-2">O nas</p>
-          <h2 className="font-display text-[clamp(1.85rem,5vw,3.1rem)] font-bold uppercase tracking-wide leading-[1.05] mb-5">
-            Studio, nie myjnia
+          <h2 className="font-display text-[clamp(1.9rem,5vw,3.2rem)] font-bold uppercase tracking-wide leading-[1.05] mb-3">
+            Auto detailing,
+            <span className="block text-gold">który widać</span>
           </h2>
-          <p className="text-muted mb-4 max-w-lg">
-            CzysteAuto to detailing w Łukowie. Wnętrze, lakier, lampy i felgi — robota ręczna, chemia dobrana do auta, efekt widać od razu.
+          <p className="text-gold/90 text-sm uppercase tracking-[0.16em] mb-5">{slogan}</p>
+          <p className="text-muted mb-4 max-w-lg leading-relaxed">
+            Bańkowski Auto Detailing to profesjonalna pielęgnacja samochodów — mycie detailingowe,
+            czyszczenie wnętrza, felgi i lakier. Działamy mobilnie u klienta oraz stacjonarnie.
           </p>
-          <p className="text-muted mb-8 max-w-lg">
-            Nie sprzedajemy „pakietów premium”. Pokazujemy przed i po. Jak chcesz wycenę — zadzwoń albo napisz na Facebooku.
+          <p className="text-muted mb-8 max-w-lg leading-relaxed">
+            Nie opieramy się na pustych hasłach. Pokazujemy realne efekty przed i po: Volvo, Focus,
+            Yaris Cross i inne auta klientów.
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-4 sm:gap-5 mb-8">
-            {facts.map((f) => (
-              <div key={f.n} className="border-t border-gold/40 pt-3">
-                <p className="font-display text-lg uppercase tracking-wide text-gold mb-1">{f.n}</p>
-                <p className="text-sm text-muted">{f.t}</p>
+          <div className="grid sm:grid-cols-2 gap-6 mb-9">
+            {modes.map((m) => (
+              <div key={m.title} className="border-t border-gold/40 pt-4">
+                <p className="font-display text-xl uppercase tracking-wide text-gold mb-2">{m.title}</p>
+                <p className="text-sm text-muted leading-relaxed">{m.text}</p>
               </div>
             ))}
           </div>
@@ -58,7 +64,7 @@ const About = () => {
               Zadzwoń {PHONE}
             </a>
             <a href={FB_MSG} target="_blank" rel="noopener noreferrer" className="btn-line">
-              Napisz na Facebooku
+              Napisz na FB
             </a>
           </div>
         </div>
